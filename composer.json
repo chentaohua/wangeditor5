@@ -1,0 +1,33 @@
+{
+    "name": "chentaohua/wangeditor5",
+    "description": "wangEditor5 extension for laravel-admin",
+    "type": "library",
+    "keywords": ["laravel-admin", "extension"],
+    "homepage": "https://github.com/chentaohua/wangeditor5",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chentaohua",
+            "email": "827821864@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "encore/laravel-admin": "~1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cth\\WangEditor5\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cth\\WangEditor5\\WangEditor5ServiceProvider"
+            ]
+        }
+    }
+}
