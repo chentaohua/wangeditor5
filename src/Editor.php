@@ -37,9 +37,8 @@ class Editor extends Field
         $this->addVariables(['height' => $config['height'] ?? '500px']);
 
         $this->script = <<<EOT
-        const { createEditor, createToolbar } = window.wangEditor;
         
-        const editorConfig = {
+        const editorConfig_{$this->id} = {
             placeholder: '请输入内容',
             onChange(editor) {
               const html = editor.getHtml();
@@ -47,15 +46,15 @@ class Editor extends Field
             }
         };
         
-        const editor = createEditor({
+        const editor_{$this->id} = window.wangEditor.createEditor({
             selector: '#editor-{$this->id}',
             html: '{$content}',
-            config: $.extend(editorConfig,{$editorConfig}),
+            config: $.extend(editorConfig_{$this->id}, {$editorConfig}),
             mode: '{$editorMode}', // or 'simple'
         });
         
-        const toolbar = createToolbar({
-            editor,
+        const toolbar_{$this->id} = window.wangEditor.createToolbar({
+            editor: editor_{$this->id},
             selector: '#toolbar-{$this->id}',
             config: {$toolbarConfig},
             mode: '{$toolbarMode}', // or 'simple'
