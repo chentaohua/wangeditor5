@@ -42,13 +42,13 @@ class Editor extends Field
             placeholder: '请输入内容',
             onChange(editor) {
               const html = editor.getHtml();
-              $('#editor-{$this->id}').parent().parent().children('input[type="hidden"]').val(html);
+              $('textarea#{$this->id}').val(html);
             }
         };
         
         const editor_{$this->id} = window.wangEditor.createEditor({
             selector: '#editor-{$this->id}',
-            html: '{$content}',
+            html: $('textarea#{$this->id}').val(),
             config: $.extend(editorConfig_{$this->id}, {$editorConfig}),
             mode: '{$editorMode}', // or 'simple'
         });
