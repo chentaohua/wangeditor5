@@ -11,7 +11,11 @@
             <div id="editor-{{$id}}" style="height: {{$height}}"><!-- 编辑器 --></div>
         </div>
 
-        <input type="hidden" name="{{$name}}" value="{{ old($column, $value) }}" />
+        <textarea
+            class="form-control hidden {{$class}}"
+            id="{{$id}}"
+            name="{{$name}}"
+            placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
 
         @include('admin::form.help-block')
 
